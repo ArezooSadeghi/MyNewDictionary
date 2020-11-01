@@ -3,6 +3,7 @@ package com.example.mynewdictionary.controller.activity;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ import com.example.mynewdictionary.controller.fragment.DetailWordFragment;
 import com.example.mynewdictionary.model.Word;
 import com.example.mynewdictionary.repository.IRepository;
 import com.example.mynewdictionary.repository.WordDBRepository;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
