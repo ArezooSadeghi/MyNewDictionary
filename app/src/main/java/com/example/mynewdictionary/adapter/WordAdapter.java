@@ -24,6 +24,7 @@ import java.util.List;
 
 public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordViewHolder> {
     private List<Word> mWords;
+    private Word mWord;
     private FragmentActivity mContext;
 
     public WordAdapter(List<Word> words, FragmentActivity context) {
@@ -89,13 +90,14 @@ public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordViewHolder
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DetailWordFragment fragment = DetailWordFragment.newInstance();
+                    DetailWordFragment fragment = DetailWordFragment.newInstance(mWord.getId());
                     fragment.show(mContext.getSupportFragmentManager(), TAG);
                 }
             });
         }
 
         public void bindWord(Word word) {
+            mWord = word;
             mTextViewWord.setText(word.getName());
         }
     }

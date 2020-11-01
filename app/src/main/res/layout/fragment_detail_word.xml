@@ -21,7 +21,7 @@
         android:layout_marginBottom="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/title_task_information"
+            android:id="@+id/txt_word"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Word" />
@@ -36,7 +36,7 @@
         android:layout_marginBottom="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/description_task_information"
+            android:id="@+id/txt_mean"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:hint="Mean" />
@@ -50,20 +50,29 @@
         android:layout_marginBottom="20dp">
 
         <Button
-            android:id="@+id/delete_task_information"
+            android:id="@+id/btn_delete"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="delete"
+            android:text="Delete"
             android:textAllCaps="false"
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/edit_task_information"
+            android:id="@+id/btn_edit"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edit"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btn_save"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
             android:textAllCaps="false"
             android:textSize="18sp" />
 
