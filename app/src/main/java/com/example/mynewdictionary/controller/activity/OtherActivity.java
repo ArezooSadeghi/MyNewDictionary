@@ -16,6 +16,7 @@ public class OtherActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
     private IRepository mRepository;
+    private int mNumberOfWord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +25,6 @@ public class OtherActivity extends AppCompatActivity {
 
         findViews();
         setSupportActionBar(mToolbar);
-        mRepository = WordDBRepository.getInstance(this);
-        int numberOfWord = mRepository.getWords().size();
-        getSupportActionBar().setSubtitle("" + numberOfWord);
         getSupportActionBar().setTitle(null);
     }
 
@@ -49,5 +47,13 @@ public class OtherActivity extends AppCompatActivity {
             default:
                 return false;
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mRepository = WordDBRepository.getInstance(this);
+        mNumberOfWord = mRepository.getWords().size();
+        getSupportActionBar().setSubtitle("" + mNumberOfWord);
     }
 }
