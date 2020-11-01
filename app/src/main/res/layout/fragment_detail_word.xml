@@ -78,5 +78,14 @@
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:text="Share Word"
+        android:textAllCaps="false" />
+
 
 </LinearLayout>
