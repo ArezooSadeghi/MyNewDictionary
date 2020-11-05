@@ -23,6 +23,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.List;
 
 public class WordAdapter extends RecyclerView.Adapter<WordAdapter.WordViewHolder> {
+
     private List<Word> mWords;
     private Word mWord;
     private FragmentActivity mContext;

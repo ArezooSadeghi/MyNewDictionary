@@ -1,6 +1,9 @@
 <resources>
+
     <string name="app_name">MyNewDictionary</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="serach_hint">Search Your Word</string>
+    <string name="intent_title">Send Word Via</string>
+
 </resources>

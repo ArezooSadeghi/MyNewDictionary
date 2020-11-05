@@ -1,6 +1,9 @@
 package com.example.mynewdictionary.controller.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,16 +22,21 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class OtherActivity extends AppCompatActivity implements NewWordFragment.PassDataCallBack {
 
     private static final String TAG = "otheractivity";
+    public static final String BUNDLE = "bundle";
     private ExtendedFloatingActionButton mButtonAdd;
     private Toolbar mToolbar;
     private IRepository mRepository;
     private int mNumberOfWord;
+    private boolean mClicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other);
         mRepository = WordDBRepository.getInstance(this);
+
+        Intent intent = getIntent();
+        mClicked = intent.getBooleanExtra("clicked", false);
 
         findViews();
         mButtonAdd.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +46,7 @@ public class OtherActivity extends AppCompatActivity implements NewWordFragment.
                 fragment.show(getSupportFragmentManager(), TAG);
             }
         });
+
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle(null);
     }
@@ -78,5 +87,19 @@ public class OtherActivity extends AppCompatActivity implements NewWordFragment.
     @Override
     public void insertClicked() {
         updateNumberOfWords();
+    }
+
+    public static Intent newIntent(Context context, boolean clicked) {
+        Intent intent = new Intent(context, OtherActivity.class);
+        intent.putExtra("clicked", clicked);
+        return intent;
+    }
+
+    @Override
+    public boolean onSearchRequested() {
+        Bundle appData = new Bundle();
+        appData.putBoolean(BUNDLE, mClicked);
+        startSearch(null, false, appData, false);
+        return true;
     }
 }

@@ -133,9 +133,31 @@ public class WordDBRepository implements IRepository {
     }
 
     @Override
-    public List<Word> searchResult(String query) {
+    public List<Word> searchResultEngToPer(String query) {
         List<Word> words = new ArrayList<>();
         String where = DBSchema.WordTable.Cols.NAME + " LIKE '%" + query + "%'";
+
+        WordCursorWrapper wordCursorWrapper = queryWordCursor(where, null);
+
+        if (wordCursorWrapper == null || wordCursorWrapper.getCount() == 0)
+            return words;
+        try {
+            wordCursorWrapper.moveToFirst();
+
+            while (!wordCursorWrapper.isAfterLast()) {
+                words.add(wordCursorWrapper.getWord());
+                wordCursorWrapper.moveToNext();
+            }
+        } finally {
+            wordCursorWrapper.close();
+        }
+        return words;
+    }
+
+    @Override
+    public List<Word> searchResultPerToEng(String query) {
+        List<Word> words = new ArrayList<>();
+        String where = DBSchema.WordTable.Cols.MEAN + " LIKE '%" + query + "%'";
 
         WordCursorWrapper wordCursorWrapper = queryWordCursor(where, null);
 

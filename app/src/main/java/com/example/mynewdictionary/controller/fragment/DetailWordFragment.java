@@ -121,7 +121,8 @@ public class DetailWordFragment extends DialogFragment {
                 Intent sendIntent = new Intent(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, mWord.getName());
                 sendIntent.setType("text/plain");
-                Intent shareIntent = Intent.createChooser(sendIntent, "send word via");
+                Intent shareIntent = Intent.createChooser(
+                        sendIntent, getString(R.string.intent_title));
                 startActivity(shareIntent);
             }
         });

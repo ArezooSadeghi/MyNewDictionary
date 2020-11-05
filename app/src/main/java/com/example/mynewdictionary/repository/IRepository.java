@@ -16,5 +16,7 @@ public interface IRepository {
 
     void deleteWord(Word word);
 
-    List<Word> searchResult(String query);
+    List<Word> searchResultEngToPer(String query);
+
+    List<Word> searchResultPerToEng(String query);
 }
